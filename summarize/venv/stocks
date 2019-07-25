@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+df =pd.read_csv("MSFT.csv")  #opening the csv of microsoft historical data
+print(df.describe())        # mean, standard deviation, min, max, 3 quartiles
+
+
+#plotting Histogram for the adjclose orice of Microsoft stock
+myHistogram=plt.figure(2)
+df.AdjClose.plot.hist(grid=True, bins=20, color='#607c8e', rwidth=0.9)
+plt.title('Microsoft stock price over one year (Histogram)')
+plt.xlabel('stock price')
+plt.ylabel('counts')
+
+
+#plotting Ogive for the adjclose orice of Microsoft stock
+myOgive=plt.figure(1)
+df.AdjClose.plot.hist(grid=True, bins=20, color='#607c8e', rwidth=0.9, cumulative=True)
+plt.title('Microsoft stock price over one year(Ogive)')
+plt.xlabel('stock price')
+plt.ylabel('counts')
+plt.show()
+input() #this functions keeps the figures alive
+
